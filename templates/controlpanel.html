@@ -1,0 +1,60 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+    <style> 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            text-align: center;
+        }
+
+    </style>
+
+    <h2>Control Panel</h2>
+
+    <p><a class="btn btn-primary" role="button" href="/clear_db">Clear Database</a></p>
+
+    <h2>Database Content</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        {% for row in data %}
+        <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <p><a class="btn btn-primary" role="button" href="/">Back to Main Menu</a></p>
+
+{% endblock %}
